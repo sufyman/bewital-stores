@@ -16,6 +16,9 @@ from scrapers.josera_scraper import JoseraScraper
 from scrapers.wolfsblut_scraper import WolfsblutScraper
 from scrapers.bosch_scraper import BoschScraper
 from scrapers.edgar_cooper_scraper import EdgarCooperScraper
+from scrapers.mera_scraper import MeraScraper
+from scrapers.finnern_scraper import FinnernScraper
+from scrapers.royal_canin_scraper import RoyalCaninScraper
 
 
 class ScraperOrchestrator:
@@ -33,10 +36,9 @@ class ScraperOrchestrator:
             'wolfsblut': WolfsblutScraper,
             'bosch': BoschScraper,
             'edgar_cooper': EdgarCooperScraper,
-            # TODO: Add other scrapers as they're implemented
-            # 'finnern': FinnernScraper,
-            # 'mera': MeraScraper,
-            # 'royal_canin': RoyalCaninScraper,
+            'mera': MeraScraper,
+            'finnern': FinnernScraper,
+            'royal_canin': RoyalCaninScraper,
         }
     
     def _setup_logging(self) -> logging.Logger:

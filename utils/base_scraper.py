@@ -104,11 +104,10 @@ class BaseScraper(ABC):
             chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
             chrome_options.add_experimental_option('useAutomationExtension', False)
             
-            # Initialize driver
-            driver = webdriver.Chrome(
-                ChromeDriverManager().install(),
-                options=chrome_options
-            )
+            # Initialize driver with correct syntax for newer Selenium
+            from selenium.webdriver.chrome.service import Service
+            service = Service(ChromeDriverManager().install())
+            driver = webdriver.Chrome(service=service, options=chrome_options)
             
             # Configure timeouts
             driver.implicitly_wait(self.config['browser']['implicit_wait'])
@@ -192,7 +191,12 @@ class BaseScraper(ABC):
             
             if self.scraped_data:
                 with open(filepath, 'w', newline='', encoding='utf-8') as csvfile:
-                    fieldnames = self.scraped_data[0].keys()
+                    # Collect all unique fieldnames from all records
+                    all_fieldnames = set()
+                    for record in self.scraped_data:
+                        all_fieldnames.update(record.keys())
+                    
+                    fieldnames = sorted(list(all_fieldnames))  # Sort for consistent column order
                     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                     writer.writeheader()
                     writer.writerows(self.scraped_data)
