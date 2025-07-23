@@ -19,6 +19,7 @@ from scrapers.edgar_cooper_scraper import EdgarCooperScraper
 from scrapers.mera_scraper import MeraScraper
 from scrapers.finnern_scraper import FinnernScraper
 from scrapers.royal_canin_scraper import RoyalCaninScraper
+from scrapers.belcando_scraper import BelcandoScraper
 
 
 class ScraperOrchestrator:
@@ -39,6 +40,7 @@ class ScraperOrchestrator:
             'mera': MeraScraper,
             'finnern': FinnernScraper,
             'royal_canin': RoyalCaninScraper,
+            'belcando': BelcandoScraper,
         }
     
     def _setup_logging(self) -> logging.Logger:

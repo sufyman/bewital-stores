@@ -68,6 +68,12 @@ websites:
     url: "https://www.wolfsblut.com/haendler/"
     enabled: true
     scraper_class: "WolfsblutScraper"
+    
+  belcando:
+    name: "Belcando"
+    url: "https://www.bewital-petfood.de/storefinder/iframe?tag=Belcando"
+    enabled: true
+    scraper_class: "BelcandoScraper"
 
 # German cities for location-based searches
 search_locations:
