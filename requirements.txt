@@ -1,0 +1,25 @@
+# Web scraping and automation
+selenium>=4.15.0
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+lxml>=4.9.0
+
+# Data handling
+pandas>=2.2.0
+openpyxl>=3.1.0
+
+# Scheduling and automation
+schedule>=1.2.0
+python-crontab>=3.0.0
+
+# Configuration and logging
+python-dotenv>=1.0.0
+pyyaml>=6.0.0
+
+# Browser automation
+webdriver-manager>=4.0.0
+
+# Additional utilities
+urllib3>=2.0.0
+fake-useragent>=1.4.0
+tenacity>=8.2.0 

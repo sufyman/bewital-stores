@@ -1,0 +1,115 @@
+# Bewital Pet Store Scraper Configuration
+
+# Output settings
+output:
+  directory: "data/raw"
+  format: "csv"
+  timestamp_files: true
+  
+# Browser settings
+browser:
+  headless: true
+  timeout: 30
+  implicit_wait: 10
+  page_load_timeout: 30
+  
+# Scraping settings
+scraping:
+  delay_between_requests: 2
+  retry_attempts: 3
+  batch_size: 50
+  
+# Target websites configuration
+websites:
+  bozita:
+    name: "Bozita"
+    url: "https://bozita.com/de/fachhandler-suchen/"
+    enabled: true
+    scraper_class: "BozitaScraper"
+    
+  josera:
+    name: "Josera"
+    url: "https://fachhandel.josera.de/"
+    enabled: true
+    scraper_class: "JoseraScraper"
+    
+  bosch:
+    name: "Bosch Tiernahrung / Sanabelle"
+    url: "https://www.bosch-tiernahrung.de/haendlersuche"
+    enabled: true
+    scraper_class: "BoschScraper"
+    
+  edgar_cooper:
+    name: "Edgar & Cooper"
+    url: "https://www.edgardcooper.com/en/store-locator/"
+    enabled: true
+    scraper_class: "EdgarCooperScraper"
+    
+  finnern:
+    name: "Finnern"
+    url: "https://www.finnern.de/"
+    enabled: true
+    scraper_class: "FinnernScraper"
+    
+  mera:
+    name: "Meradog / Meracat"
+    url: "https://www.mera-petfood.com/de/haendlersuche/"
+    enabled: true
+    scraper_class: "MeraScraper"
+    
+  royal_canin:
+    name: "Royal Canin"
+    url: "https://www.royalcanin.com/de/find-a-retailer"
+    enabled: true
+    scraper_class: "RoyalCaninScraper"
+    
+  wolfsblut:
+    name: "Wolfsblut"
+    url: "https://www.wolfsblut.com/haendler/"
+    enabled: true
+    scraper_class: "WolfsblutScraper"
+
+# German cities for location-based searches
+search_locations:
+  major_cities:
+    - "Berlin"
+    - "Hamburg"
+    - "München"
+    - "Köln"
+    - "Frankfurt am Main"
+    - "Stuttgart"
+    - "Düsseldorf"
+    - "Leipzig"
+    - "Dortmund"
+    - "Essen"
+    - "Bremen"
+    - "Dresden"
+    - "Hannover"
+    - "Nürnberg"
+    - "Duisburg"
+    - "Bochum"
+    - "Wuppertal"
+    - "Bielefeld"
+    - "Bonn"
+    - "Münster"
+    
+  search_radius: 50  # kilometers
+
+# Logging configuration
+logging:
+  level: "INFO"
+  file: "logs/scraper.log"
+  max_file_size: "10MB"
+  backup_count: 5
+  
+# Automation settings
+automation:
+  enabled: false
+  schedule: "weekly"  # daily, weekly, monthly
+  time: "02:00"
+  
+# Validation settings
+validation:
+  check_store_existence: true
+  verify_addresses: false  # Enable when implementing Google Places API
+  detect_duplicates: true 

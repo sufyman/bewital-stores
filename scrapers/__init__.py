@@ -1,0 +1,1 @@
+# Scrapers package for Bewital Pet Store Scraper 
